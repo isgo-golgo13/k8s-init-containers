@@ -14,7 +14,7 @@ As its docs reference, `kubeval` installs on Linux or runs runs less instrusivel
 
 To run `kubeval` against the `init-container-pod.yaml` execute it as the following:
 
-`kubeval init-container-pod` 
+`kubeval init-container-pod.yaml` 
 
 The result after executing this should show this (if the YAML is structured correctly):
 
