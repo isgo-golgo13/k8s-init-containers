@@ -1,0 +1,26 @@
+apiVersion: v1 
+kind: Pod
+metadata:
+  name: init-container-pod  
+spec:
+  containers:
+  - name: nginx
+    image: nginx 
+    ports: 
+    - containerPort: 80 
+    volumeMounts:
+    - name: workdir
+      mountPath: /usr/share/nginx/html
+  # This container is run during pod initialization
+  initContainers:
+  - name: busybox-init-container
+    image: busybox 
+    command: ["/bin/sh"]
+    args: ["-c", "echo '<html><h1>This is init container index.html content.</h1></html>' >> /work-dir/index.html"]
+    volumeMounts: 
+    - name: workdir 
+      mountPath: "/work-dir" 
+  dnsPolicy: Default
+  volumes: 
+  - name: workdir
+    emptyDir: {}
