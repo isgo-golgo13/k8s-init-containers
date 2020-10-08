@@ -1,1 +1,47 @@
 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-svcapp
+  name:  nginx-svcapp
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: nginx-svcapp
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: nginx-svcapp
+    spec:
+      containers:
+      - name: nginx       
+        image: nginx 
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: workdir
+          mountPath: /usr/share/nginx/html
+      # These containers are run during pod initialization
+      initContainers:
+      - name: busybox-init-container1
+        image: busybox 
+        command: ["/bin/sh"]
+        args: ["-c", "echo '<html><h1>This is init container 1 content.</h1></html>' >> /work-dir/index.html"]
+        volumeMounts:
+        - name: workdir
+          mountPath: "/work-dir"
+      - name: busybox-init-container2
+        image: busybox 
+        command: ["/bin/sh"]
+        args: ["-c", "echo '<p>This is init container 2 content.</p>' >> /work-dir/index.html"]
+        volumeMounts:
+        - name: workdir
+          mountPath: "/work-dir"
+      dnsPolicy: Default
+      volumes:
+      - name: workdir 
+        emptyDir: {}
+status: {}
