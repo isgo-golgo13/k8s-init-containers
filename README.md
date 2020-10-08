@@ -1,7 +1,7 @@
 # k8s-init-containers
 Kubernetes (K8s) Init Container Pattern in action (YAML) - Non-Helm version
 
-### To execute the init container in the `init-container-pod.yaml` and verify init-container-pod works
+##### To execute the init container in the `init-container-pod.yaml` and verify init-container-pod works
 
 At the shell execute the following to create the K8s Pod that includes the dependent nginx container and 
 the secondary init (busybox) container:
