@@ -68,4 +68,4 @@ To qualify the Service is running correctly into the K8s cluster.
 `kubectl get services -o wide`
 
 To see the init containers in this version executing the content writing into the nginx served index.html page, get the cluster IP and 
-append the Service NodePort port # (cluster-ip:<node-port>)
+append the Service NodePort port # (cluster-ip:node-port)
