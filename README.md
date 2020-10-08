@@ -1,6 +1,9 @@
 # k8s-init-containers
 Kubernetes (K8s) Init Container Pattern in action (YAML) - Non-Helm version
 
+![Init Containers Pattern Diagram](https://github.com/isgo-golgo13/k8s-init-containers/png/init-containers.png)
+
+
 ### Init Container Pattern using K8s Pod w/out K8s Service
 
 At the shell execute the following to create the K8s Pod that includes the dependent nginx container and 
