@@ -1,7 +1,7 @@
 # k8s-init-containers
 Kubernetes (K8s) Init Container Pattern in action (YAML) - Non-Helm version
 
-#### To execute the init container in the 'init-container-pod.yaml' and verify init-container-pod works
+### Init Container Pattern using K8s Pod w/out K8s Service
 
 At the shell execute the following to create the K8s Pod that includes the dependent nginx container and 
 the secondary init (busybox) container:
@@ -31,3 +31,16 @@ The get the status of the created Pod.
 The previous execution should show this:
 
 `init-container-pod   1/1     Running   0          4m30s`
+
+Next execute into the Pod and execute the following `apt-get` instructions to install `curl`:
+
+`kubectl exec -it init-container-pod -- /bin/sh`
+`apt-get update && apt-get install -y curl`
+
+Finally `curl` the localhost of the nginx container and the served html content will show what 
+the init container generated into  the index.html file.
+
+
+
+
+### Init Container Pattern using K8s Deployment Controller w/ K8s Service
