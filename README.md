@@ -56,7 +56,7 @@ into the default namespace K8s cluster.
 
 To qualify the Deployment is in the cluster, issue the following to see the five Pod replicas are running:
 
-`kubectl get deployments -o wide`
+`kubectl get deployments -o wide` and then issue the following:
 `kubectl get pods -o wide`
 
 To create and deploy the Service for this Deployment into the K8s cluster issue the following:
