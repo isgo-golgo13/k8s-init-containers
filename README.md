@@ -30,6 +30,4 @@ The get the status of the created Pod.
 
 The previous execution should show this:
 
-
- NAME                 READY   STATUS    RESTARTS   AGE \n
 `init-container-pod   1/1     Running   0          4m30s`
