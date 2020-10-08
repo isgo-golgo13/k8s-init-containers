@@ -1,7 +1,7 @@
 # k8s-init-containers
 Kubernetes (K8s) Init Container Pattern in action (YAML) - Non-Helm version
 
-![Init Containers Pattern Diagram](https://github.com/isgo-golgo13/k8s-init-containers/png/init-containers.png)
+![Init Containers Pattern Diagram](https://github.com/isgo-golgo13/k8s-init-containers/pngs/init-containers.png)
 
 
 ### Init Container Pattern using K8s Pod w/out K8s Service
