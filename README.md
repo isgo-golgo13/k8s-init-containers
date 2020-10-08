@@ -38,9 +38,34 @@ Next execute into the Pod and execute the following `apt-get` instructions to in
 `apt-get update && apt-get install -y curl`
 
 Finally `curl` the localhost of the nginx container and the served html content will show what 
-the init container generated into  the index.html file.
+the init container generated into the index.html file.
 
 
 
 
 ### Init Container Pattern using K8s Deployment Controller w/ K8s Service
+
+This version of the init containers patttern includes the nginx dependent container and two init containers 
+(busybox-init-container1, busybox-init-container2). The first init container writes html to `/work-dir/index.html` and
+the second init container writes additional content to `/work-dir/index.html`.
+
+To execute this second version of the init containers pattern, create and deploy the `init-container-deployment.yaml` Deployment
+into the default namespace K8s cluster. 
+
+`kubectl create -f init-container-deployments.yaml` 
+
+To qualify the Deployment is in the cluster, issue the following to see the five Pod replicas are running:
+
+`kubectl get deployments -o wide`
+`kubectl get pods -o wide`
+
+To create and deploy the Service for this Deployment into the K8s cluster issue the following:
+
+`kubectl create -f init-container-service.yaml`
+
+To qualify the Service is running correctly into the K8s cluster.
+
+`kubectl get services -o wide`
+
+To see the init containers in this version executing the content writing into the nginx served index.html page, get the cluster IP and 
+append the Service NodePort port # (cluster-ip:<node-port>)
