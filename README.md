@@ -69,3 +69,5 @@ To qualify the Service is running correctly into the K8s cluster.
 
 To see the init containers in this version executing the content writing into the nginx served index.html page, get the cluster IP and 
 append the Service NodePort port # (cluster-ip:node-port)
+
+If running the K8s cluster on Minikube, then running `minikube ip` to get the cluster ip.
